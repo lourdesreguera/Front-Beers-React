@@ -1,6 +1,7 @@
 import * as actions from './beers.actions';
 
 const INITIAL_STATE = {
+    allBeers: [],
     beers: [],
     isLoading: false,
     error: null
@@ -17,6 +18,9 @@ const { type, payload } = action;
         }
         case actions.ERROR_BEERS: {
             return { ...state, beers: [], isLoading: false, error: payload }
+        }
+        case actions.GET_ALL_BEERS: {
+            return { ...state, allBeers: payload, beers: [], isLoading: false, error: payload }
         }
         default:
            return state

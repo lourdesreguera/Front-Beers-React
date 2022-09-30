@@ -1,48 +1,63 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBeers } from "../redux/beers/beers.actions";
+import { getAllBeers, getBeers, setBeers } from "../redux/beers/beers.actions";
 import { useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import BeersByFilter from "../components/BeersByFilter";
 
 const Beers = () => {
   const dispatch = useDispatch();
-  const { beers } = useSelector((state) => state.beers);
-  const [type, setType] = useState([]);
+  const { beers, allBeers } = useSelector((state) => state.beers);
+  const [type, setType] = useState();
 
-  // useEffect(() => {
-  //   dispatch(getBeers());
-  // }, []);
-
-  // const updateRating = (beerId, ev) => {
-  //   const beer = beers.find((beer) => beer._id === beerId);
-  //   const rate = Number(ev.target.innerText);
-
-  //   const updatedBeer = { ...beer, rating: [...beer.rating, rate] };
-  //   axios.put(`http://localhost:4000/beers/edit/${beerId}`, updatedBeer);
-  // };
-
-  const filterByType = (ev) => {
-    const result = beers.find((beer) => beer.type === ev.target.innerText);
-    setType(result);
-    console.log(result);
-  };
+  useEffect(() => {
+    dispatch(getAllBeers());
+    dispatch(getBeers());
+  }, []);
 
   return (
     <div>
       <nav>
         <h2>Tipo:</h2>
-        {beers &&
-          beers.map((beer) => {
+        <p onClick={() => dispatch(getBeers())}>Todas</p>
+        {allBeers &&
+          allBeers.map((beer) => {
             return (
-              <p key={beer._id} onClick={filterByType}>
+              <p key={beer._id} onClick={() => dispatch(getBeers(beer.type))}>
                 {beer.type}
               </p>
             );
           })}
+        <h2>País:</h2>
+        <p onClick={() => dispatch(getBeers())}>Todas</p>
+        {allBeers &&
+          allBeers.map((beer) => {
+            return (
+              <p
+                key={beer._id}
+                onClick={() => dispatch(getBeers(beer.country))}
+              >
+                {beer.country}
+              </p>
+            );
+          })}
+        <h2>Alcohol:</h2>
+        <p onClick={() => dispatch(getBeers())}>Todas</p>
+        {allBeers &&
+          allBeers.map((beer) => {
+            return (
+              <p
+                key={beer._id}
+                onClick={() => dispatch(getBeers(beer.alcohol))}
+              >
+                {beer.alcohol}
+              </p>
+            );
+          })}
       </nav>
-      {/* {beers && <BeersByFilter beers={beers} />} */}
-      {type && <BeersByFilter beers={type} />}
+      <BeersByFilter />
+      {/* {type !== [] ? <BeersByFilter beers={type} /> : <BeersByFilter beers={beers} />} */}
 
       {/*  
       {beers &&
