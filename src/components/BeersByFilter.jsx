@@ -1,10 +1,16 @@
 import axios from "axios";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getBeers } from "../redux/beers/beers.actions";
 
 const BeersByFilter = () => {
   const { beers } = useSelector((state) => state.beers);
-  // console.log(beers);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBeers());
+  }, []);
 
   const updateRating = (beerId, ev) => {
     const beer = beers.find((beer) => beer._id === beerId);
