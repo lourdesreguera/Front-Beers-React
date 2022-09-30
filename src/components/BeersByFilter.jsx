@@ -11,7 +11,10 @@ const BeersByFilter = () => {
     const rate = Number(ev.target.innerText);
 
     const updatedBeer = { ...beer, rating: [...beer.rating, rate] };
-    axios.put(`http://localhost:4000/beers/edit/${beerId}`, updatedBeer);
+    axios.put(
+      `hhttps://beers-menu.herokuapp.com/beers/edit/${beerId}`,
+      updatedBeer
+    );
   };
 
   return (
@@ -22,6 +25,7 @@ const BeersByFilter = () => {
           return (
             <div key={beer._id}>
               <h1>{beer.name}</h1>
+              {beer.image && <img src={beer.image} alt={beer.name} />}
               {beer.rating.length === 0 ? (
                 <p>Esta cerveza aún no ha sido puntuada</p>
               ) : (
@@ -40,6 +44,7 @@ const BeersByFilter = () => {
       {!beers.length > 0 && (
         <div>
           <h1>{beers.name}</h1>
+          {beers.image && <img src={beers.image} alt={beers.name} />}
           {!beers.rating ? (
             <p>Esta cerveza aún no ha sido puntuada</p>
           ) : (
