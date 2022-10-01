@@ -9,5 +9,13 @@
     &--submenu {
         font-size: 16px;
         line-height: 2;
+        &:active {
+            color: var(--text-hover);
+        }
     }
 }
+
+.true {
+    color: var(--text-hover);
+}
+

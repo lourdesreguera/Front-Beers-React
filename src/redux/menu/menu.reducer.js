@@ -4,6 +4,9 @@ const INITIAL_STATE = {
   types: false,
   countries: false,
   alcohol: false,
+  typeClassActive: false,
+  countryClassActive: false,
+  alcoholClassActive: false,
 };
 
 const menuReducer = (state = INITIAL_STATE, action) => {
@@ -15,6 +18,9 @@ const menuReducer = (state = INITIAL_STATE, action) => {
         types: !state.types,
         countries: false,
         alcohol: false,
+        typeClassActive: !state.typeClassActive,
+        countryClassActive: false,
+        alcoholClassActive: false,
       };
     case actions.SHOW_COUNTRIES:
       return {
@@ -22,6 +28,9 @@ const menuReducer = (state = INITIAL_STATE, action) => {
         types: false,
         countries: !state.countries,
         alcohol: false,
+        typeClassActive: false,
+        countryClassActive: !state.countryClassActive,
+        alcoholClassActive: false,
       };
     case actions.SHOW_ALCOHOL:
       return {
@@ -29,6 +38,9 @@ const menuReducer = (state = INITIAL_STATE, action) => {
         types: false,
         countries: false,
         alcohol: !state.alcohol,
+        typeClassActive: false,
+        countryClassActive: false,
+        alcoholClassActive: !state.alcoholClassActive,
       };
     default:
       return state;
