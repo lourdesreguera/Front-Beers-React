@@ -8,9 +8,15 @@
     src: url(../../public/fonts/futura/futura-light-bt.ttf);
 }
 
+@font-face {
+    font-family: "Futura Bold";
+    src: url(../../public/fonts/futura/Futura-Bold-font.ttf);
+}
+
 :root {
     --body-font: "Futura Light";
-    --heading-font: "Futura Medium"
+    --heading-font: "Futura Medium";
+    --heading-home: "Futura Bold"
 }
 
 .text-color {
@@ -40,4 +46,15 @@
 
 .beer-info__desc {
     margin: 40px 30px;
+}
+
+.b-home__heading {
+    text-transform: uppercase;
+    font-family: var(--heading-home);
+    font-size: 34px;
+}
+
+.b-home__subheading {
+    font-size: 16px;
+    margin: 30px 0;
 }
