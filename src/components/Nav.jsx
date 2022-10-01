@@ -15,16 +15,34 @@ const Nav = () => {
   const { types, countries, alcohol } = useSelector((state) => state.menu);
 
   return (
-    <nav className="b-nav">
-      <h2 onClick={() => dispatch(showTypes())}>Tipos:</h2>
+    <header className="b-header">
+      <nav className="b-header__nav">
+        <h2
+          className="b-link b-link--head"
+          onClick={() => dispatch(showTypes())}
+        >
+          Tipos
+        </h2>
+
+        <h2
+          className="b-link b-link--head"
+          onClick={() => dispatch(showCountries())}
+        >
+          País
+        </h2>
+
+        <h2
+          className="b-link b-link--head"
+          onClick={() => dispatch(showAlcohol())}
+        >
+          Alcohol
+        </h2>
+      </nav>
+      
       {types && <Types />}
-
-      <h2 onClick={() => dispatch(showCountries())}>País:</h2>
       {countries && <Countries />}
-
-      <h2 onClick={() => dispatch(showAlcohol())}>Alcohol:</h2>
       {alcohol && <Alcohol />}
-    </nav>
+    </header>
   );
 };
 

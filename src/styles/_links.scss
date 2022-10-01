@@ -1,0 +1,13 @@
+.b-link {
+    cursor: pointer;
+    font-family: var(--heading-font);
+    padding: 0 20px;
+    &--head {
+        text-transform: uppercase;
+        font-size: 24px;
+    }
+    &--submenu {
+        font-size: 16px;
+        line-height: 2;
+    }
+}

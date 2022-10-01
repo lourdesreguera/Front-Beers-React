@@ -2,5 +2,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--body-font);
+  background-color: var(--light-bcg);
+}
+
+p, h1, h2 {
+  margin: 0;
 }
 

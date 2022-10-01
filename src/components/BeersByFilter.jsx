@@ -18,32 +18,43 @@ const BeersByFilter = () => {
 
     const updatedBeer = { ...beer, rating: [...beer.rating, rate] };
     axios.put(
-      `hhttps://beers-menu.herokuapp.com/beers/edit/${beerId}`,
+      `https://beers-menu.herokuapp.com/beers/edit/${beerId}`,
       updatedBeer
     );
   };
 
   return (
-    <div>
+    <div className="b-gallery">
       {beers &&
         beers.length > 0 &&
-        beers.map((beer) => {
+        beers.map((beer, key) => {
+          if(key % 2 === 1) { key = 'odd'} else {key = 'even'}
           return (
-            <div key={beer._id}>
-              <h1>{beer.name}</h1>
-              {beer.image && <img src={beer.image} alt={beer.name} />}
-              {beer.rating.length === 0 ? (
-                <p>Esta cerveza aún no ha sido puntuada</p>
-              ) : (
-                <p>
-                  {beer.rating.reduce((a, b) => a + b, 0) / beer.rating.length}
-                </p>
-              )}
-              <button onClick={(ev) => updateRating(beer._id, ev)}>1</button>
-              <button onClick={(ev) => updateRating(beer._id, ev)}>2</button>
-              <button onClick={(ev) => updateRating(beer._id, ev)}>3</button>
-              <button onClick={(ev) => updateRating(beer._id, ev)}>4</button>
-              <button onClick={(ev) => updateRating(beer._id, ev)}>5</button>
+            <div className={"b-gallery__item b-gallery__item--" + key} key={key}>
+              {beer.image && <img className="b-gallery__image" src={beer.image} alt={beer.name} />}
+              <div>
+                <h1>{beer.name}</h1>
+                <h2>Tipo</h2>
+                <p>{beer.type}</p>
+                <h2>Alcohol</h2>
+                <p>{beer.alcohol}% vol.</p>
+                <h2>País</h2>
+                <p>{beer.country}</p>
+                {beer.rating.length === 0 ? (
+                  <p>Esta cerveza aún no ha sido puntuada</p>
+                ) : (
+                  <p>
+                    {beer.rating.reduce((a, b) => a + b, 0) /
+                      beer.rating.length}
+                  </p>
+                )}
+                <button onClick={(ev) => updateRating(beer._id, ev)}>1</button>
+                <button onClick={(ev) => updateRating(beer._id, ev)}>2</button>
+                <button onClick={(ev) => updateRating(beer._id, ev)}>3</button>
+                <button onClick={(ev) => updateRating(beer._id, ev)}>4</button>
+                <button onClick={(ev) => updateRating(beer._id, ev)}>5</button>
+              </div>
+              <p>{beer.description}</p>
             </div>
           );
         })}

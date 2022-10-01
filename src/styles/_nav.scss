@@ -1,4 +1,20 @@
-.b-nav {
+.b-header {
+  position: fixed;
+  width: 100%;
+}
+
+.b-header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 30px;
+  background-color: var(--light-bcg);
+  border: 1px solid var(--main-text);
+  &--submenu {
+    border: none;
     display: flex;
-    position: fixed;
+    flex-wrap: wrap;
+    padding: 13px 0;
+    justify-content: flex-start;
+  }
 }

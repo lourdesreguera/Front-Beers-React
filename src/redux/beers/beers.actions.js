@@ -15,7 +15,6 @@ export const getBeers = (filter) => async (dispatch) => {
         return type === filter || country === filter || alcohol === filter;
       });
       await dispatch({ type: GET_BEERS, payload: result });
-      console.log(result);
     } else {
       await dispatch({ type: GET_BEERS, payload: res.data });
     }
