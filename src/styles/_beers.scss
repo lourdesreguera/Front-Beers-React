@@ -7,6 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 100px;
     &--even {
         background-color: var(--color-bcg);
     }
@@ -17,4 +18,9 @@
 
 .b-gallery__image {
     max-height: 275px;
+    margin-bottom: 40px;
+}
+
+.b-gallery__text {
+    text-align: center;
 }

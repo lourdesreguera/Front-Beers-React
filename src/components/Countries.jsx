@@ -8,6 +8,7 @@ const Countries = () => {
   const { allBeers } = useSelector((state) => state.beers);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(getAllBeers());
   }, []);
 

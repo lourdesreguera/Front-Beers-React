@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
     <div>
-      Home
+      <Link to='/beers'>Pulsa para ver la carta de cervezas</Link>
     </div>
   )
 }

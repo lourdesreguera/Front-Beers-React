@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Types from "./Types";
 import Countries from "./Countries";
 import Alcohol from "./Alcohol";
-
+import { useEffect } from "react";
 import {
   showAlcohol,
   showCountries,
@@ -38,7 +38,7 @@ const Nav = () => {
           Alcohol
         </h2>
       </nav>
-      
+
       {types && <Types />}
       {countries && <Countries />}
       {alcohol && <Alcohol />}

@@ -12,3 +12,32 @@
     --body-font: "Futura Light";
     --heading-font: "Futura Medium"
 }
+
+.text-color {
+    &--even {
+        color: var(--main-text);
+    }
+    &--odd {
+        color: var(--light-bcg);
+    }
+}
+
+.beer-info {
+    font-family: var(--heading-font);
+    margin: 10px 0;
+    &--subheading {
+        font-size: 18px;
+    }
+    &--heading {
+        font-size: 28px;
+    }
+}
+
+.beer-info__text {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.beer-info__desc {
+    margin: 40px 30px;
+}
