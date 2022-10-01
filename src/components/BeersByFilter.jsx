@@ -47,7 +47,7 @@ const BeersByFilter = () => {
             </div>
           );
         })}
-      {!beers.length > 0 && (
+      {beers && !beers.length > 0 && (
         <div>
           <h1>{beers.name}</h1>
           {beers.image && <img src={beers.image} alt={beers.name} />}

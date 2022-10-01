@@ -23,7 +23,7 @@ const beersReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         allBeers: payload,
-        beers: [],
+        beers: payload,
         isLoading: false,
         error: payload,
       };
