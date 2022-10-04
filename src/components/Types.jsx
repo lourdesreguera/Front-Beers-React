@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllBeers, getBeers } from "../redux/beers/beers.actions";
+import { showTypes } from "../redux/menu/menu.actions";
 
 const Types = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,15 @@ const Types = () => {
 
   return (
     <div className="b-header__nav b-header__nav--submenu">
-      <p className="b-link b-link--submenu" onClick={() => dispatch(getBeers())}>Todas</p>
+      <p
+        className="b-link b-link--submenu"
+        onClick={() => {
+          dispatch(getBeers());
+          dispatch(showTypes());
+        }}
+      >
+        Todas
+      </p>
       {allBeers &&
         Array.from(
           allBeers.map((beer) => {
@@ -32,7 +41,14 @@ const Types = () => {
           })
           .map((type) => {
             return (
-              <p className="b-link b-link--submenu" key={type._id} onClick={() => dispatch(getBeers(type))}>
+              <p
+                className="b-link b-link--submenu"
+                key={type._id}
+                onClick={() => {
+                  dispatch(getBeers(type));
+                  dispatch(showTypes());
+                }}
+              >
                 {type}
               </p>
             );

@@ -26,7 +26,7 @@ const BeersByFilter = () => {
       `https://beers-menu.herokuapp.com/beers/edit/${beerId}`,
       updatedBeer
     );
-    dispatch(getBeers())
+    dispatch(getBeers());
   };
 
   return (
@@ -121,6 +121,24 @@ const BeersByFilter = () => {
                       : "beer-info beer-info--subheading text-color---even"
                   }
                 >
+                  Precio
+                </h2>
+                <p
+                  className={
+                    key % 2 === 1
+                      ? "beer-info__text text-color--odd"
+                      : "beer-info__text text-color---even"
+                  }
+                >
+                  {beer.price} €
+                </p>
+                <h2
+                  className={
+                    key % 2 === 1
+                      ? "beer-info beer-info--subheading text-color--odd"
+                      : "beer-info beer-info--subheading text-color---even"
+                  }
+                >
                   Puntuación
                 </h2>
                 {beer.rating.length === 0 ? (
@@ -141,8 +159,10 @@ const BeersByFilter = () => {
                         : "beer-info__text text-color---even"
                     }
                   >
-                    {(beer.rating.reduce((a, b) => a + b, 0) /
-                      beer.rating.length).toFixed(1)}
+                    {(
+                      beer.rating.reduce((a, b) => a + b, 0) /
+                      beer.rating.length
+                    ).toFixed(1)}
                   </p>
                 )}
                 <p
@@ -155,11 +175,36 @@ const BeersByFilter = () => {
                   Pulsa el botón que quieras y puntúa esta cerveza
                 </p>
 
-                <button className="btn" onClick={(ev) => updateRating(beer._id, ev)}>1</button>
-                <button className="btn" onClick={(ev) => updateRating(beer._id, ev)}>2</button>
-                <button className="btn" onClick={(ev) => updateRating(beer._id, ev)}>3</button>
-                <button className="btn" onClick={(ev) => updateRating(beer._id, ev)}>4</button>
-                <button className="btn" onClick={(ev) => updateRating(beer._id, ev)}>5</button>
+                <button
+                  className="btn"
+                  onClick={(ev) => updateRating(beer._id, ev)}
+                >
+                  1
+                </button>
+                <button
+                  className="btn"
+                  onClick={(ev) => updateRating(beer._id, ev)}
+                >
+                  2
+                </button>
+                <button
+                  className="btn"
+                  onClick={(ev) => updateRating(beer._id, ev)}
+                >
+                  3
+                </button>
+                <button
+                  className="btn"
+                  onClick={(ev) => updateRating(beer._id, ev)}
+                >
+                  4
+                </button>
+                <button
+                  className="btn"
+                  onClick={(ev) => updateRating(beer._id, ev)}
+                >
+                  5
+                </button>
                 <p
                   className={
                     key % 2 === 1
